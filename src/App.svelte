@@ -301,8 +301,12 @@
       const opacity = Math.min(0.3 + velocity * 0.1, 1.0);
 
       ctx.fillStyle = isLightMode
-        ? (p.color === "#ffffff" ? `rgba(100, 116, 139, ${opacity})` : "#2563eb")
-        : (p.color === "#ffffff" ? `rgba(255, 255, 255, ${opacity})` : p.color);
+        ? p.color === "#ffffff"
+          ? `rgba(100, 116, 139, ${opacity})`
+          : "#2563eb"
+        : p.color === "#ffffff"
+          ? `rgba(255, 255, 255, ${opacity})`
+          : p.color;
 
       ctx.fill();
     }
@@ -342,8 +346,8 @@
     const maxRadius = Math.ceil(
       Math.sqrt(
         Math.max(originX, window.innerWidth - originX) ** 2 +
-        Math.max(originY, window.innerHeight - originY) ** 2
-      )
+          Math.max(originY, window.innerHeight - originY) ** 2,
+      ),
     );
 
     if (transitionOverlay) {
@@ -443,7 +447,7 @@
           id="Layer_2"
           data-name="Layer 2"
           xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 588.71 340.77"
+          viewBox="0 0 620 340.77"
           class="hero-logo"
         >
           <defs>
@@ -460,7 +464,8 @@
 
               .cls-4 {
                 fill: #c7d8d8;
-                font-family: GoogleSansFlex-Regular, "Google Sans Flex";
+                font-family: "Google Sans", GoogleSansFlex-Regular,
+                  "Google Sans Flex", sans-serif;
                 font-size: 46.64px;
                 font-variation-settings:
                   "opsz" 18,
@@ -513,7 +518,10 @@
                     role="button"
                     tabindex="0"
                     onclick={handleDotClick}
-                    onkeydown={(e) => { if (e.key === 'Enter' || e.key === ' ') handleDotClick(e as unknown as MouseEvent); }}
+                    onkeydown={(e) => {
+                      if (e.key === "Enter" || e.key === " ")
+                        handleDotClick(e as unknown as MouseEvent);
+                    }}
                   />
                   <path
                     class="cls-3"
@@ -538,14 +546,7 @@
                 </g>
               </g>
               <text class="cls-4" transform="translate(0 326.66)"
-                ><tspan x="0" y="0">IT &amp; </tspan><tspan
-                  class="cls-5"
-                  x="86.8"
-                  y="0">A</tspan
-                ><tspan class="cls-6" x="116.51" y="0">C</tspan><tspan
-                  x="150.37"
-                  y="0">ADEMIC SOLUTIONS</tspan
-                ></text
+                ><tspan x="0" y="0">IT &amp; ACADEMIC SOLUTIONS</tspan></text
               >
             </g>
           </g>
@@ -572,7 +573,7 @@
   }
 
   :global(body) {
-    background-color: #1C2329 !important;
+    background-color: #1c2329 !important;
     margin: 0 !important;
     padding: 0 !important;
     overflow: hidden !important;
@@ -594,7 +595,7 @@
     width: 100vw;
     height: 100vh;
     height: 100svh;
-    background-color: #1C2329;
+    background-color: #1c2329;
     overflow: hidden;
     color: #fff;
     font-family:
@@ -624,7 +625,7 @@
     inset: 0;
     z-index: 0;
     overflow: hidden;
-    background-color: #1C2329;
+    background-color: #1c2329;
     cursor: crosshair;
   }
 
@@ -634,11 +635,11 @@
 
   /* --- Light-mode SVG logo letter overrides --- */
   .light-mode :global(.cls-2) {
-    fill: #1C2329;
+    fill: #1c2329;
   }
 
   .light-mode :global(.cls-4) {
-    fill: #1C2329;
+    fill: #1c2329;
   }
 
   canvas {
@@ -689,7 +690,10 @@
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     user-select: none;
-    transition: color 0.5s, border-color 0.5s, background-color 0.5s;
+    transition:
+      color 0.5s,
+      border-color 0.5s,
+      background-color 0.5s;
   }
 
   .light-mode .hero-tag {
@@ -710,6 +714,7 @@
   .hero-logo {
     display: block;
     height: 250px;
+    max-width: 90vw;
     mix-blend-mode: difference;
     filter: drop-shadow(0 4px 20px rgba(160, 218, 222, 0.15));
     transition: filter 0.5s;
@@ -724,7 +729,9 @@
   .theme-dot {
     cursor: pointer;
     pointer-events: auto;
-    transition: fill 0.3s, filter 0.3s;
+    transition:
+      fill 0.3s,
+      filter 0.3s;
   }
 
   .theme-dot:hover {
@@ -742,6 +749,22 @@
     }
   }
 
+  @media (max-width: 767px) {
+    .hero-logo {
+      height: auto;
+      width: 85vw;
+      max-width: 340px;
+    }
+
+    .tag-container {
+      margin-bottom: 24px;
+    }
+
+    .hero-inner {
+      gap: 1.25rem;
+    }
+  }
+
   @media (min-width: 1024px) {
     .hero-logo {
       max-width: 520px;
@@ -756,7 +779,9 @@
     font-weight: 300;
     line-height: 1.6;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-    transition: color 0.5s, text-shadow 0.5s;
+    transition:
+      color 0.5s,
+      text-shadow 0.5s;
   }
 
   .light-mode .hero-description {
