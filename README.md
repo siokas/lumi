@@ -19,8 +19,14 @@ Lumi Solutions is a premium, interactive landing page designed for **Educational
 
 ### 3. Premium Aesthetics & Typography
 * **Google Sans Typography**: Styled with high-fidelity, professional **Google Sans** typography, loaded directly via Google Fonts preconnected CDN to offer a clean, premium visual aesthetic.
-* **Mix-Blend Difference Blending**: The **Lumi Solutions** logo uses a sophisticated CSS `mix-blend-mode: difference` and a soft custom teal glow drop-shadow, allowing falling snow particles to dynamically contrast and blend as they pass behind it.
+* **Mix-Blend Difference Blending**: The **Lumi Solutions** logo uses a sophisticated CSS `mix-blend-mode: difference` (dark mode) and a soft custom teal glow drop-shadow, allowing falling snow particles to dynamically contrast and blend as they pass behind it.
 * **Google Blue Accents**: Subtle hints of branding integrated using vibrant HSL colors and soft radial gradient pulses.
+
+### 4. Dark/Light Mode with Circular Reveal Transition
+* **Interactive Toggle**: Click the **dot** in the SVG logo icon (the sun element) to switch between dark and light themes. The dot glows amber on hover to hint at interactivity.
+* **Circular Reveal Animation**: The theme transition uses a CSS `clip-path: circle()` animation that expands outward from the dot's position. The old theme is painted as an overlay that shrinks away over **1.2 seconds**, progressively revealing the live new-theme canvas underneath — so you see the particles, snow, and glow change in real-time as the circle opens up.
+* **Full Theme Adaptation**: Canvas particle colors, background fills, radial glow tones, SVG logo letter fills, tag borders, and description text all adapt seamlessly between the dark (`#1c2329`) and light (`#f0f2f5`) palettes.
+* **Responsive**: Both themes are fully optimized for desktop and mobile viewports.
 
 ---
 
@@ -31,6 +37,7 @@ Lumi Solutions is a premium, interactive landing page designed for **Educational
 * **Build Tool**: Vite
 * **Typography**: Google Sans (integrated via preconnected Google Fonts API)
 * **Styles**: Native Scoped Vanilla CSS (Zero utility library bloat for maximum loading speed and SEO optimization)
+* **Animations**: CSS `clip-path` circular transitions, `requestAnimationFrame` physics loop, CSS `@keyframes` entry animations
 
 ---
 
